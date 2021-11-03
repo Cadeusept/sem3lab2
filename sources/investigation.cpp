@@ -1,13 +1,6 @@
 // Copyright 2021 Your Name <your_email>
 
 #include <investigation.hpp>
-#include <stdexcept>
-
-std::ofstream open_file(std::string filename) {
-  std::ofstream fout;
-  fout.open(filename,std::ofstream::out);
-  return fout;
-}
 
 size_t kbytes_to_elems(size_t size){
   return size*1024/4; //kB
@@ -77,31 +70,34 @@ unsigned int random_experiment(size_t size){
 }
 
 
-auto straight_investigation(
-    size_t size_1, size_t size_2, std::ofstream &fout) -> void {
-  unsigned int straight_time;
-  fout << "<font color=\"green\">investigation:</font>" << std::endl;
-  fout << "\ttravel_variant: \"straight\"\n"
-          "\texperiments:" <<std::endl;
+auto straight_investigation(int* sizes,  std::ofstream &fout) -> void {
+  unsigned int time;
+  print_header("straight", fout);
 
-  straight_time = straight_experiment(size_1);
-  fout << "\t- experiment:\n"
-          "\t\tnumber: 1\n"
-          "\t\tinput_data:\n"
-          "\t\t\tbuffer_size: \"" << size_1 << "kB\"\n"
-          "\t\tresults:\n"
-          "\t\t\tduration: \"" << straight_time << "ns\"" <<std::endl;
+  for (int i = 1; i <= 4; ++i) {
+    time = straight_experiment(kbytes_to_elems(sizes[i-1]));
+    print_experiment_data(i, sizes[i-1], time, fout);
+  }
 
-  straight_time = straight_experiment(size_2);
-  fout << "\t- experiment:\n"
-          "\t\tnumber: 1\n"
-          "\t\tinput_data:\n"
-          "\t\t\tbuffer_size: \"" << size_2 << "kB\"\n"
-          "\t\tresults:\n"
-          "\t\t\tduration: \"" << straight_time << "ns\"" <<std::endl;
+  print_footer(fout);
+}
 
+void print_header(std::string travel_var, std::ofstream &fout) {
+  fout << "investigation:" << std::endl;
+  fout << "&ensp;travel_variant: \"" << travel_var << "\"\n"
+          "&ensp;experiments:" <<std::endl;
+}
 
-  //unsigned int reverse_time = reverse_experiment(size);
-  //unsigned int random_time = random_experiment(size);
+void print_experiment_data(unsigned int number, size_t size,
+                           unsigned int time, std::ostream &fout) {
+  fout << "&ensp;- experiment:\n"
+          "&ensp;&ensp;number: " << number << "\n"
+          "&ensp;&ensp;input_data:\n"
+          "&ensp;&ensp;&ensp;buffer_size: \"" << size << "kB\"\n"
+          "&ensp;&ensp;results:\n"
+          "&ensp;&ensp;&ensp;duration: \"" << time << "ns\"" << std::endl;
+}
 
+void print_footer(std::ostream &fout) {
+  fout << std::endl;
 }
