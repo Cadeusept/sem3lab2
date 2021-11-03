@@ -120,14 +120,14 @@ void print_header(std::string travel_var, std::ofstream &fout) {
 
 void print_experiment_data(unsigned int number, size_t size,
                            unsigned int time, std::ostream &fout) {
-  fout << "&ensp;- experiment:&ensp;\n"
-          "&ensp;&ensp;number: " << number << "&ensp;\n"
-          "&ensp;&ensp;input_data:\n"
-          "&ensp;&ensp;&ensp;buffer_size: \"" << size << "kB\"\n"
-          "&ensp;&ensp;results:\n"
-          "&ensp;&ensp;&ensp;duration: \"" << time << "ns\"" << std::endl;
+  fout << "&ensp;- experiment:\n  "
+          "&ensp;&ensp;number: " << number << "\n  "
+          "&ensp;&ensp;input_data:\n  "
+          "&ensp;&ensp;&ensp;buffer_size: \"" << size << "kB\"\n  "
+          "&ensp;&ensp;results:\n  "
+          "&ensp;&ensp;&ensp;duration: \"" << time << "ns\"  " << std::endl;
 }
 
 void print_footer(std::ofstream &fout) {
-  fout << std::endl;
+  fout << "  " << std::endl;
 }
