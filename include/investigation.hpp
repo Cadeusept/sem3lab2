@@ -10,7 +10,7 @@
 #include <cmath>
 #include <stdexcept>
 
-#define REPORT_FILE_NAME "result.md"
+#define REPORT_FILE_NAME OUTPT_DIR"result.md"
 #define NUMBER_OF_TESTS 1000
 
 size_t kbytes_to_elems(size_t size);

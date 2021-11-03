@@ -110,7 +110,6 @@ auto test_cpu(int* sizes,  std::ofstream &fout) -> void {
   straight_investigation(sizes, fout);
   reverse_investigation(sizes, fout);
   random_investigation(sizes, fout);
-
 }
 
 void print_header(std::string travel_var, std::ofstream &fout) {
