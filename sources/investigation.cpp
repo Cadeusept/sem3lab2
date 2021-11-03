@@ -5,7 +5,7 @@
 
 std::ofstream open_file(std::string filename) {
   std::ofstream fout;
-  fout.open(filename);
+  fout.open(filename,std::ofstream::out);
   return fout;
 }
 

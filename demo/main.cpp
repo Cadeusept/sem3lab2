@@ -6,5 +6,6 @@ int main() {
 
   std::ofstream report_file=open_file(REPORT_FILE_NAME);
   straight_investigation(96,2048,report_file);
+  report_file.close();
   return 0;
 }
