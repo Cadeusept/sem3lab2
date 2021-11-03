@@ -23,6 +23,12 @@ unsigned int random_experiment(size_t size);
 
 auto straight_investigation(int* sizes,  std::ofstream &fout) -> void;
 
+auto reverse_investigation(int* sizes,  std::ofstream &fout) -> void;
+
+auto random_investigation(int* sizes,  std::ofstream &fout) -> void;
+
+auto test_cpu(int* sizes,  std::ofstream &fout) -> void;
+
 void print_header(std::string travel_var, std::ofstream &fout);
 
 void print_experiment_data(unsigned int number, size_t size, unsigned int time, std::ostream &fout);

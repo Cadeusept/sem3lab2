@@ -82,6 +82,37 @@ auto straight_investigation(int* sizes,  std::ofstream &fout) -> void {
   print_footer(fout);
 }
 
+auto reverse_investigation(int* sizes,  std::ofstream &fout) -> void {
+  unsigned int time;
+  print_header("reverse", fout);
+
+  for (int i = 1; i <= 4; ++i) {
+    time = reverse_experiment(kbytes_to_elems(sizes[i-1]));
+    print_experiment_data(i, sizes[i-1], time, fout);
+  }
+
+  print_footer(fout);
+}
+
+auto random_investigation(int* sizes,  std::ofstream &fout) -> void {
+  unsigned int time;
+  print_header("random", fout);
+
+  for (int i = 1; i <= 4; ++i) {
+    time = random_experiment(kbytes_to_elems(sizes[i-1]));
+    print_experiment_data(i, sizes[i-1], time, fout);
+  }
+
+  print_footer(fout);
+}
+
+auto test_cpu(int* sizes,  std::ofstream &fout) -> void {
+  straight_investigation(sizes, fout);
+  reverse_investigation(sizes, fout);
+  random_investigation(sizes, fout);
+
+}
+
 void print_header(std::string travel_var, std::ofstream &fout) {
   fout << "investigation:" << std::endl;
   fout << "&ensp;travel_variant: \"" << travel_var << "\"\n"
@@ -98,6 +129,6 @@ void print_experiment_data(unsigned int number, size_t size,
           "&ensp;&ensp;&ensp;duration: \"" << time << "ns\"" << std::endl;
 }
 
-void print_footer(std::ostream &fout) {
+void print_footer(std::ofstream &fout) {
   fout << std::endl;
 }

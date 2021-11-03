@@ -13,7 +13,7 @@ int main() {
 
   std::ofstream report_file;
   report_file.open(REPORT_FILE_NAME, std::ofstream::out);
-  straight_investigation(mem_test_sizes,report_file);
+  test_cpu(mem_test_sizes,report_file);
   report_file.close();
   return 0;
 }
