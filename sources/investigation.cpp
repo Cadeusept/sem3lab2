@@ -113,9 +113,9 @@ auto test_cpu(int* sizes,  std::ofstream &fout) -> void {
 }
 
 void print_header(std::string travel_var, std::ofstream &fout) {
-  fout << "<span style=\"color: green;\">investigation:</span>" << std::endl;
-  fout << "&ensp;travel_variant: \"" << travel_var << "\"\n"
-          "&ensp;experiments:" <<std::endl;
+  fout << "<span style=\"color: green;\">investigation:</span>  " << std::endl;
+  fout << "&ensp;travel_variant: \"" << travel_var << "\"\n  "
+          "&ensp;experiments:  " <<std::endl;
 }
 
 void print_experiment_data(unsigned int number, size_t size,

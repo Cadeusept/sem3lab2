@@ -1,6 +1,6 @@
-<span style="color: green;">investigation:</span>
+<span style="color: green;">investigation:</span>  
 &ensp;travel_variant: "straight"
-&ensp;experiments:
+  &ensp;experiments:  
 &ensp;- experiment:
   &ensp;&ensp;number: 1
   &ensp;&ensp;input_data:
@@ -18,7 +18,7 @@
   &ensp;&ensp;input_data:
   &ensp;&ensp;&ensp;buffer_size: "2000kB"
   &ensp;&ensp;results:
-  &ensp;&ensp;&ensp;duration: "153ns"  
+  &ensp;&ensp;&ensp;duration: "154ns"  
 &ensp;- experiment:
   &ensp;&ensp;number: 4
   &ensp;&ensp;input_data:
@@ -26,9 +26,9 @@
   &ensp;&ensp;results:
   &ensp;&ensp;&ensp;duration: "235ns"  
   
-<span style="color: green;">investigation:</span>
+<span style="color: green;">investigation:</span>  
 &ensp;travel_variant: "reverse"
-&ensp;experiments:
+  &ensp;experiments:  
 &ensp;- experiment:
   &ensp;&ensp;number: 1
   &ensp;&ensp;input_data:
@@ -54,9 +54,9 @@
   &ensp;&ensp;results:
   &ensp;&ensp;&ensp;duration: "311ns"  
   
-<span style="color: green;">investigation:</span>
+<span style="color: green;">investigation:</span>  
 &ensp;travel_variant: "random"
-&ensp;experiments:
+  &ensp;experiments:  
 &ensp;- experiment:
   &ensp;&ensp;number: 1
   &ensp;&ensp;input_data:
@@ -74,11 +74,11 @@
   &ensp;&ensp;input_data:
   &ensp;&ensp;&ensp;buffer_size: "2000kB"
   &ensp;&ensp;results:
-  &ensp;&ensp;&ensp;duration: "297ns"  
+  &ensp;&ensp;&ensp;duration: "298ns"  
 &ensp;- experiment:
   &ensp;&ensp;number: 4
   &ensp;&ensp;input_data:
   &ensp;&ensp;&ensp;buffer_size: "3072kB"
   &ensp;&ensp;results:
-  &ensp;&ensp;&ensp;duration: "473ns"  
+  &ensp;&ensp;&ensp;duration: "532ns"  
   
