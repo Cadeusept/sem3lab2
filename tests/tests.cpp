@@ -10,13 +10,13 @@ TEST(Equality,kbytes_2_elems){
 }
 
 TEST(Equality, straight_exp){
-  EXPECT_EQ(straight_experiment(0),2);
+  EXPECT_EQ(straight_experiment(0),0);
 }
 
 TEST(Equality, reverse_exp){
-  EXPECT_EQ(reverse_experiment(0),2);
+  EXPECT_EQ(reverse_experiment(0),0);
 }
 
 TEST(Equality, random_exp){
-  EXPECT_EQ(random_experiment(0),2);
+  EXPECT_EQ(random_experiment(0),0);
 }

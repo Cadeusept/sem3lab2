@@ -9,13 +9,13 @@ size_t kbytes_to_elems(size_t size){
 unsigned int straight_experiment(size_t size){
   [[maybe_unused]] int k = 0;
   [[maybe_unused]] int* arr1 = new int[size];
-  unsigned int sum=0;
-  for (int i = 0; (size_t)i < size; i += 16) // прогрев
+  unsigned int sum = 0;
+  for (int i = 0; static_cast<size_t>(i) < size; i += 16) // прогрев
     k = arr1[i];
 
-  for (int j=0; j<NUMBER_OF_TESTS; ++j) {
+  for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
-    for (int i = 0; (size_t)i < size; i += 16)  // чтение
+    for (int i = 0; static_cast<size_t>(i) < size; i += 16)  // чтение
       k = arr1[i];
     unsigned int end_time = clock();
     sum += end_time - start_time;
@@ -27,13 +27,13 @@ unsigned int straight_experiment(size_t size){
 unsigned int reverse_experiment(size_t size){
   [[maybe_unused]] int k = 0;
   [[maybe_unused]] int* arr1 = new int[size];
-  unsigned int sum=0;
-  for (int i = (int)size; i > 0; i -= 16) // прогрев
+  unsigned int sum = 0;
+  for (int i = static_cast<int>(size); i > 0; i -= 16) // прогрев
     k = arr1[i];
 
   for (int j=0; j<NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
-    for (int i = (int)size; i > 0; i -= 16)  // чтение
+    for (int i = static_cast<int>(size); i > 0; i -= 16)  // чтение
       k = arr1[i];
     unsigned int end_time = clock();
     sum += end_time - start_time;
@@ -45,20 +45,20 @@ unsigned int reverse_experiment(size_t size){
 unsigned int random_experiment(size_t size){
   [[maybe_unused]] int k = 0;
   [[maybe_unused]] int* arr1 = new int[size];
-  unsigned int sum=0;
+  unsigned int sum = 0;
 
   srand(time(0));
-  [[maybe_unused]] int* num_array=new int[size/16];
-  int kol=0;
-  for (int i = 0; (size_t)i < size; i += 16) {  // создание случайного прохода
+  [[maybe_unused]] int* num_array = new int[size/16];
+  int kol = 0;
+  for (int i = 0; static_cast<size_t>(i) < size; i += 16) {  // создание случайного прохода
     num_array[kol] = i;
     kol++;
   }
-  std::random_shuffle(num_array,num_array+kol);
+  std::random_shuffle(num_array, num_array+kol);
 
   for (int i = 0; i <= kol; ++i) // прогрев
     k = arr1[num_array[i]];
-  for (int j=0; j<NUMBER_OF_TESTS; ++j) {
+  for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
     for (int i = 0; i <= kol; ++i)  // чтение
       k = arr1[num_array[i]];
@@ -123,9 +123,11 @@ void print_experiment_data(unsigned int number, size_t size,
   fout << "&ensp;- experiment:  " << std::endl <<
           "&ensp;&ensp;&ensp;number: " << number << "  " << std::endl <<
           "&ensp;&ensp;&ensp;input_data:  " << std::endl <<
-          "&ensp;&ensp;&ensp;&ensp;buffer_size: \"" << size << "kB\"  " << std::endl <<
+          "&ensp;&ensp;&ensp;&ensp;buffer_size: \"" << size << "kB\"  "
+          << std::endl <<
           "&ensp;&ensp;&ensp;results:  " << std::endl <<
-          "&ensp;&ensp;&ensp;&ensp;duration: \"" << time << "ns\"  " << std::endl;
+          "&ensp;&ensp;&ensp;&ensp;duration: \"" << time << "ns\"  "
+          << std::endl;
 }
 
 void print_footer(std::ofstream &fout) {

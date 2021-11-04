@@ -1,7 +1,7 @@
 //Copyright 2021 Matthew abobus1488822@yandex.ru
 
-#ifndef INCLUDE_EXAMPLE_HPP_
-#define INCLUDE_EXAMPLE_HPP_
+#ifndef INCLUDE_INVESTIGATION_HPP_
+#define INCLUDE_INVESTIGATION_HPP_
 
 #include <cstdlib>
 #include <algorithm>
@@ -9,6 +9,7 @@
 #include <fstream>
 #include <cmath>
 #include <stdexcept>
+#include <string>
 
 #define REPORT_FILE_NAME OUTPT_DIR"result.md"
 #define NUMBER_OF_TESTS 1000
@@ -31,7 +32,8 @@ auto test_cpu(int* sizes,  std::ofstream &fout) -> void;
 
 void print_header(std::string travel_var, std::ofstream &fout);
 
-void print_experiment_data(unsigned int number, size_t size, unsigned int time, std::ostream &fout);
+void print_experiment_data(unsigned int number, size_t size,
+                           unsigned int time, std::ostream &fout);
 
 void print_footer(std::ofstream &fout);
 
