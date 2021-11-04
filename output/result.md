@@ -18,7 +18,7 @@
 &ensp;&ensp;&ensp;input_data:  
 &ensp;&ensp;&ensp;&ensp;buffer_size: "2000kB"  
 &ensp;&ensp;&ensp;results:  
-&ensp;&ensp;&ensp;&ensp;duration: "154ns"  
+&ensp;&ensp;&ensp;&ensp;duration: "153ns"  
 &ensp;- experiment:  
 &ensp;&ensp;&ensp;number: 4  
 &ensp;&ensp;&ensp;input_data:  
@@ -74,11 +74,11 @@
 &ensp;&ensp;&ensp;input_data:  
 &ensp;&ensp;&ensp;&ensp;buffer_size: "2000kB"  
 &ensp;&ensp;&ensp;results:  
-&ensp;&ensp;&ensp;&ensp;duration: "300ns"  
+&ensp;&ensp;&ensp;&ensp;duration: "297ns"  
 &ensp;- experiment:  
 &ensp;&ensp;&ensp;number: 4  
 &ensp;&ensp;&ensp;input_data:  
 &ensp;&ensp;&ensp;&ensp;buffer_size: "3072kB"  
 &ensp;&ensp;&ensp;results:  
-&ensp;&ensp;&ensp;&ensp;duration: "474ns"  
+&ensp;&ensp;&ensp;&ensp;duration: "468ns"  
   
