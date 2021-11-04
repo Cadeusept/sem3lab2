@@ -31,7 +31,7 @@ unsigned int reverse_experiment(size_t size){
   for (int i = static_cast<int>(size); i > 0; i -= 16) // прогрев
     k = arr1[i];
 
-  for (int j=0; j<NUMBER_OF_TESTS; ++j) {
+  for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
     for (int i = static_cast<int>(size); i > 0; i -= 16)  // чтение
       k = arr1[i];
@@ -49,8 +49,8 @@ unsigned int random_experiment(size_t size){
 
   srand(time(0));
   [[maybe_unused]] int* num_array = new int[size/16];
-  int kol = 0;
-  for (int i = 0; static_cast<size_t>(i) < size; i += 16) {  // создание случайного прохода
+  int kol = 0; // создание порядка случайного прохода
+  for (int i = 0; static_cast<size_t>(i) < size; i += 16) {
     num_array[kol] = i;
     kol++;
   }

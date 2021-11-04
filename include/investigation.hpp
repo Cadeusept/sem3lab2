@@ -37,4 +37,4 @@ void print_experiment_data(unsigned int number, size_t size,
 
 void print_footer(std::ofstream &fout);
 
-#endif // INCLUDE_EXAMPLE_HPP_
+#endif // INCLUDE_INVESTIGATION_HPP_
