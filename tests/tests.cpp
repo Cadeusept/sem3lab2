@@ -74,7 +74,7 @@ TEST(Equality, Print_ftr){
 
   EXPECT_EQ(test_outpt, eq_outpt);
 }
-
+/*
 TEST(Equality, Straight_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
@@ -154,3 +154,4 @@ TEST(Equality, Cpu_test){
   delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
+*/
