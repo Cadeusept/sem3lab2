@@ -74,6 +74,7 @@ TEST(Equality, Print_ftr){
 
   EXPECT_EQ(test_outpt, eq_outpt);
 }
+
 /*
 TEST(Equality, Straight_inv){
   std::ofstream fout;
