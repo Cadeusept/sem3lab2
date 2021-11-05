@@ -48,7 +48,7 @@ unsigned int random_experiment(size_t size){
   unsigned int sum = 0;
 
   srand(time(0));
-  [[maybe_unused]] int* num_array = new int[size/16];
+  [[maybe_unused]] int* num_array = new int[(size/16) + 1];
   int kol = 0; // создание порядка случайного прохода
   for (int i = 0; static_cast<size_t>(i) < size; i += 16) {
     num_array[kol] = i;
