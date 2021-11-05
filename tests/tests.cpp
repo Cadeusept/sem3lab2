@@ -75,13 +75,11 @@ TEST(Equality, Print_ftr){
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
-/*
-
 TEST(Equality, Straight_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  arr=new int[0];
+  int* arr=new int[0];
   straight_investigation(arr, fout);
 
   fout.close();
@@ -101,7 +99,7 @@ TEST(Equality, Reverse_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  arr=new int[0];
+  int* arr=new int[0];
   reverse_investigation(arr, fout);
 
   fout.close();
@@ -121,7 +119,7 @@ TEST(Equality, Random_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  arr=new int[0];
+  int* arr=new int[0];
   random_investigation(new int[0], fout);
 
   fout.close();
@@ -141,7 +139,7 @@ TEST(Equality, Cpu_test){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  arr=new int[0];
+  int* arr=new int[0];
   test_cpu(arr, fout);
 
   fout.close();
@@ -156,6 +154,3 @@ TEST(Equality, Cpu_test){
   delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
-
-*/
-
