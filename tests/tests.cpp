@@ -21,6 +21,62 @@ TEST(Equality, Random_exp){
   EXPECT_EQ(random_experiment(0),0);
 }
 
+TEST(Equality,Print_hdr){
+  std::ofstream fout;
+  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
+
+  print_header("random",fout);
+
+  fout.close();
+  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
+  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
+                      std::istreambuf_iterator<char>());
+
+  std::ifstream file2(TESTFILE_DIR"test5.md");
+  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
+                      std::istreambuf_iterator<char>());
+
+  EXPECT_EQ(test_outpt, eq_outpt);
+}
+
+TEST(Equality, Print_exp){
+  std::ofstream fout;
+  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
+
+  print_experiment_data(3,5,10,fout);
+
+  fout.close();
+  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
+  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
+                      std::istreambuf_iterator<char>());
+
+  std::ifstream file2(TESTFILE_DIR"test6.md");
+  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
+                      std::istreambuf_iterator<char>());
+
+  EXPECT_EQ(test_outpt, eq_outpt);
+}
+
+TEST(Equality, Print_ftr){
+  std::ofstream fout;
+  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
+
+  print_footer(fout);
+
+  fout.close();
+  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
+  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
+                      std::istreambuf_iterator<char>());
+
+  std::ifstream file2(TESTFILE_DIR"test7.md");
+  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
+                      std::istreambuf_iterator<char>());
+
+  EXPECT_EQ(test_outpt, eq_outpt);
+}
+
+/*
+
 TEST(Equality, Straight_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
@@ -93,56 +149,5 @@ TEST(Equality, Cpu_test){
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
-TEST(Equality,Print_hdr){
-  std::ofstream fout;
-  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
+*/
 
-  print_header("random",fout);
-
-  fout.close();
-  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
-  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
-                      std::istreambuf_iterator<char>());
-
-  std::ifstream file2(TESTFILE_DIR"test5.md");
-  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
-                      std::istreambuf_iterator<char>());
-
-  EXPECT_EQ(test_outpt, eq_outpt);
-}
-
-TEST(Equality, Print_exp){
-  std::ofstream fout;
-  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
-
-  print_experiment_data(3,5,10,fout);
-
-  fout.close();
-  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
-  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
-                      std::istreambuf_iterator<char>());
-
-  std::ifstream file2(TESTFILE_DIR"test6.md");
-  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
-                      std::istreambuf_iterator<char>());
-
-  EXPECT_EQ(test_outpt, eq_outpt);
-}
-
-TEST(Equality, Print_ftr){
-  std::ofstream fout;
-  fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
-
-  print_footer(fout);
-
-  fout.close();
-  std::ifstream file1(TESTFILE_DIR"test_outpt.md");
-  std::string test_outpt((std::istreambuf_iterator<char>(file1)),
-                      std::istreambuf_iterator<char>());
-
-  std::ifstream file2(TESTFILE_DIR"test7.md");
-  std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
-                      std::istreambuf_iterator<char>());
-
-  EXPECT_EQ(test_outpt, eq_outpt);
-}
