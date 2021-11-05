@@ -56,11 +56,11 @@ unsigned int random_experiment(size_t size){
   }
   std::random_shuffle(num_array, num_array+kol);
 
-  for (int i = 0; i <= kol; ++i) // прогрев
+  for (int i = 0; i < kol; ++i) // прогрев
     k = arr1[num_array[i]];
   for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
-    for (int i = 0; i <= kol; ++i)  // чтение
+    for (int i = 0; i < kol; ++i)  // чтение
       k = arr1[num_array[i]];
     unsigned int end_time = clock();
     sum += end_time - start_time;
