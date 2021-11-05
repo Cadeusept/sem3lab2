@@ -47,6 +47,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 add_definitions("-DOUTPT_DIR=\"${CMAKE_SOURCE_DIR}/output/\"")
+add_definitions("-DTESTFILE_DIR=\"${CMAKE_SOURCE_DIR}/tests/files/\"")
 
 target_link_libraries(demo ${PROJECT_NAME})
 
