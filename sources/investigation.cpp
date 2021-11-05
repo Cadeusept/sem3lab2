@@ -8,43 +8,45 @@ size_t kbytes_to_elems(size_t size){
 
 unsigned int straight_experiment(size_t size){
   [[maybe_unused]] int k = 0;
-  [[maybe_unused]] int* arr1 = new int[size];
+  [[maybe_unused]] int* arr = new int[size];
   unsigned int sum = 0;
   for (int i = 0; static_cast<size_t>(i) < size; i += 16) // прогрев
-    k = arr1[i];
+    k = arr[i];
 
   for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
     for (int i = 0; static_cast<size_t>(i) < size; i += 16)  // чтение
-      k = arr1[i];
+      k = arr[i];
     unsigned int end_time = clock();
     sum += end_time - start_time;
   }
 
+  delete[] arr;
   return std::round(sum/NUMBER_OF_TESTS);
 }
 
 unsigned int reverse_experiment(size_t size){
   [[maybe_unused]] int k = 0;
-  [[maybe_unused]] int* arr1 = new int[size];
+  [[maybe_unused]] int* arr = new int[size];
   unsigned int sum = 0;
   for (int i = static_cast<int>(size); i > 0; i -= 16) // прогрев
-    k = arr1[i];
+    k = arr[i];
 
   for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
     for (int i = static_cast<int>(size); i > 0; i -= 16)  // чтение
-      k = arr1[i];
+      k = arr[i];
     unsigned int end_time = clock();
     sum += end_time - start_time;
   }
 
+  delete[] arr;
   return std::round(sum/NUMBER_OF_TESTS);
 }
 
 unsigned int random_experiment(size_t size){
   [[maybe_unused]] int k = 0;
-  [[maybe_unused]] int* arr1 = new int[size];
+  [[maybe_unused]] int* arr = new int[size];
   unsigned int sum = 0;
 
   srand(time(0));
@@ -57,15 +59,17 @@ unsigned int random_experiment(size_t size){
   std::random_shuffle(num_array, num_array+kol);
 
   for (int i = 0; i < kol; ++i) // прогрев
-    k = arr1[num_array[i]];
+    k = arr[num_array[i]];
   for (int j=0; j < NUMBER_OF_TESTS; ++j) {
     unsigned int start_time = clock();
     for (int i = 0; i < kol; ++i)  // чтение
-      k = arr1[num_array[i]];
+      k = arr[num_array[i]];
     unsigned int end_time = clock();
     sum += end_time - start_time;
   }
 
+  delete[] arr;
+  delete[] num_array;
   return std::round(sum/NUMBER_OF_TESTS);
 }
 

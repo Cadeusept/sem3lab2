@@ -81,7 +81,8 @@ TEST(Equality, Straight_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  straight_investigation(new int[0], fout);
+  arr=new int[0];
+  straight_investigation(arr, fout);
 
   fout.close();
   std::ifstream file1(TESTFILE_DIR"test_outpt.md");
@@ -92,6 +93,7 @@ TEST(Equality, Straight_inv){
   std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
                       std::istreambuf_iterator<char>());
 
+  delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
@@ -99,7 +101,8 @@ TEST(Equality, Reverse_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  reverse_investigation(new int[0], fout);
+  arr=new int[0];
+  reverse_investigation(arr, fout);
 
   fout.close();
   std::ifstream file1(TESTFILE_DIR"test_outpt.md");
@@ -110,6 +113,7 @@ TEST(Equality, Reverse_inv){
   std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
                       std::istreambuf_iterator<char>());
 
+  delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
@@ -117,6 +121,7 @@ TEST(Equality, Random_inv){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
+  arr=new int[0];
   random_investigation(new int[0], fout);
 
   fout.close();
@@ -128,6 +133,7 @@ TEST(Equality, Random_inv){
   std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
                       std::istreambuf_iterator<char>());
 
+  delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
@@ -135,7 +141,8 @@ TEST(Equality, Cpu_test){
   std::ofstream fout;
   fout.open(TESTFILE_DIR"test_outpt.md", std::ofstream::out);
 
-  test_cpu(new int[0], fout);
+  arr=new int[0];
+  test_cpu(arr, fout);
 
   fout.close();
   std::ifstream file1(TESTFILE_DIR"test_outpt.md");
@@ -146,6 +153,7 @@ TEST(Equality, Cpu_test){
   std::string eq_outpt((std::istreambuf_iterator<char>(file2)),
                       std::istreambuf_iterator<char>());
 
+  delete[] arr;
   EXPECT_EQ(test_outpt, eq_outpt);
 }
 
